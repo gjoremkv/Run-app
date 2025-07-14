@@ -20,7 +20,7 @@ function polarToCartesian(centerX: number, centerY: number, radius: number, angl
   };
 }
 
-const ProgressRing = () => {
+const ProgressRing = ({ onStart }: { onStart?: () => void }) => {
   // Calculate runner position
   const runnerPos = polarToCartesian(CENTER, CENTER, RADIUS, ANGLE);
   // Calculate green trail path
@@ -48,7 +48,7 @@ const ProgressRing = () => {
         />
       </View>
       {/* Start button below the circle */}
-      <TouchableOpacity style={styles.startButton}>
+      <TouchableOpacity style={styles.startButton} onPress={onStart}>
         <Text style={styles.startText}>Start</Text>
       </TouchableOpacity>
     </View>
